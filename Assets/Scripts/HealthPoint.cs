@@ -15,12 +15,14 @@ public class HealthPoint : MonoBehaviour
     CameraShake cameraShake;
     AudioPlayer audioPlayer;
     ScoreManager scoreManager;
-
+    LevelManager levelManager;
+    
     void Awake()
     {
         cameraShake = Camera.main.GetComponent<CameraShake>();
         audioPlayer = FindFirstObjectByType<AudioPlayer>();
         scoreManager = FindFirstObjectByType<ScoreManager>();
+        levelManager = FindFirstObjectByType<LevelManager>();
     }
     
     void Start()
@@ -79,14 +81,17 @@ public class HealthPoint : MonoBehaviour
         if (!isPlayer)
         {
             scoreManager.AddScore(score);
+            
             animator.SetTrigger(asteroidExplosion);
         }
         else
         {
             animator.SetTrigger(shipExplosion);
+            
+            // Load game over menu
+            levelManager.LoadGameOver();
         }
         
-
         // Destroy game object
         Destroy(gameObject);
     }
