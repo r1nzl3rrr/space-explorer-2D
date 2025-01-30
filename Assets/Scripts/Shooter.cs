@@ -8,8 +8,7 @@ public class Shooter : MonoBehaviour
     [SerializeField] float projectileLifeTime = 5f;
     [SerializeField] float firingRate = 0.2f;
     
-    
-    public bool isFiring;
+    [HideInInspector] public bool isFiring;
     
     Coroutine firingCoroutine;
 

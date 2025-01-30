@@ -97,8 +97,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5409196669851312099, guid: 4f5a2215308d82c4aa5250c46787bc32, type: 3}
       propertyPath: health
-      value: 50
+      value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: -5409196669851312099, guid: 4f5a2215308d82c4aa5250c46787bc32, type: 3}
+      propertyPath: hitEffect
+      value: 
+      objectReference: {fileID: 1811021602542172758, guid: 7e1c014c451d1c5438a5905be2641dcd, type: 3}
     - target: {fileID: 98993276174919471, guid: 4f5a2215308d82c4aa5250c46787bc32, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

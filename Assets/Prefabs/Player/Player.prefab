@@ -101,6 +101,8 @@ GameObject:
   - component: {fileID: 8837867301921719640}
   - component: {fileID: 2617249426695895568}
   - component: {fileID: 6418908983269189169}
+  - component: {fileID: 4813168048167270458}
+  - component: {fileID: 3506955172746486055}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -247,3 +249,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+  hitEffect: {fileID: 1811021602542172758, guid: 7e1c014c451d1c5438a5905be2641dcd, type: 3}
+  useCameraShake: 1
+  isPlayer: 1
+--- !u!114 &4813168048167270458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2696669143659697641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9735a65ece90a748b926b5304a88816, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 6016463004710394216, guid: 9a997ea8571f0d540a4fa0ff71365b56, type: 3}
+  projectileSpeed: 10
+  projectileLifeTime: 5
+  firingRate: 0.2
+  isFiring: 0
+--- !u!95 &3506955172746486055
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2696669143659697641}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3bd11361239db154393100a6a80d8377, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
