@@ -12,7 +12,7 @@ public class PathFinder : MonoBehaviour
 
     void Awake()
     {
-        asteroidSpawner = FindObjectOfType<AsteroidSpawner>();
+        asteroidSpawner = FindFirstObjectByType<AsteroidSpawner>();
     }
     
     void Start()

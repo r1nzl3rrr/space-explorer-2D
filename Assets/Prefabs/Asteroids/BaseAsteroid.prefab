@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1990275745396284157}
   - component: {fileID: 5881332852879730466}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: -6018871614264817713}
   - component: {fileID: -5664923731490273328}
   - component: {fileID: 7773738976920783038}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BaseAsteroid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17a4df6ccdfdb64448da857a72f05ef0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
 --- !u!114 &-6018871614264817713
 MonoBehaviour:
   m_ObjectHideFlags: 0
