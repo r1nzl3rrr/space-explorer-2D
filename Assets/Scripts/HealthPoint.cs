@@ -2,16 +2,17 @@ using UnityEngine;
 
 public class HealthPoint : MonoBehaviour
 {
-    private static readonly int shipExplosion = Animator.StringToHash("ShipExplosion");
-    private static readonly int asteroidExplosion = Animator.StringToHash("AsteroidExplosion");
+    private static readonly int AsteroidExplosion = Animator.StringToHash("AsteroidExplosion");
+    private static readonly int ShipExplosion = Animator.StringToHash("ShipExplosion");
     
     [SerializeField] int health = 50;
     [SerializeField] int score = 50;
     [SerializeField] ParticleSystem hitEffect;
     [SerializeField] bool useCameraShake;
     [SerializeField] bool isPlayer;
-    
-    Animator animator;
+    [SerializeField] Animator explosionAnim;
+    [SerializeField] float explosionDuration = 0.5f;
+
     CameraShake cameraShake;
     AudioPlayer audioPlayer;
     ScoreManager scoreManager;
@@ -23,11 +24,7 @@ public class HealthPoint : MonoBehaviour
         audioPlayer = FindFirstObjectByType<AudioPlayer>();
         scoreManager = FindFirstObjectByType<ScoreManager>();
         levelManager = FindFirstObjectByType<LevelManager>();
-    }
-    
-    void Start()
-    {
-        animator = GetComponent<Animator>();
+        
     }
     
     void OnTriggerEnter2D(Collider2D other)
@@ -74,25 +71,29 @@ public class HealthPoint : MonoBehaviour
             Die();
         }
     }
-
+    
+    
     void Die()
     {
-        // Play explosion animation or add score whether is object is player or not
+        // Instantiate a new explosion animator
+        Animator explosionInstance = Instantiate(explosionAnim, 
+            transform.position, Quaternion.identity);
+        
+        // Play explosion animation and add score whether the object is player or not
         if (!isPlayer)
         {
+            explosionInstance.SetTrigger(AsteroidExplosion);
             scoreManager.AddScore(score);
-            
-            animator.SetTrigger(asteroidExplosion);
         }
         else
         {
-            animator.SetTrigger(shipExplosion);
-            
+            explosionInstance.SetTrigger(ShipExplosion);
             // Load game over menu
             levelManager.LoadGameOver();
         }
         
         // Destroy game object
+        Destroy(explosionInstance.gameObject, explosionDuration);
         Destroy(gameObject);
     }
 

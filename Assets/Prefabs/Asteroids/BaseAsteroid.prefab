@@ -137,8 +137,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  score: 50
   hitEffect: {fileID: 1811021602542172758, guid: 7e1c014c451d1c5438a5905be2641dcd, type: 3}
+  useCameraShake: 0
   isPlayer: 0
+  explosionAnim: {fileID: 1986093242357226621, guid: 6f5b5fb05cfee644bb575b8903099cc5, type: 3}
+  explosionDuration: 0.3
 --- !u!114 &-6018871614264817713
 MonoBehaviour:
   m_ObjectHideFlags: 0
