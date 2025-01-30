@@ -6,7 +6,8 @@ public class AsteroidSpawner : MonoBehaviour
 {
     [SerializeField] List<WaveConfigSO> waves;
     [SerializeField] float timeBetweenWaves = 5f;
-    
+    [SerializeField] bool isWavesLooping;
+
     WaveConfigSO currentWave;
     
     void Start()
@@ -21,17 +22,19 @@ public class AsteroidSpawner : MonoBehaviour
     
     IEnumerator SpawnWaves()
     {
-        foreach (WaveConfigSO wave in waves)
+        do
         {
-            currentWave = wave;
+            foreach (WaveConfigSO wave in waves)
+            {
+                currentWave = wave;
             
-            // Start spawning asteroids for the current wave
-            yield return StartCoroutine(SpawnAsteroids(currentWave));
+                // Start spawning asteroids for the current wave
+                yield return StartCoroutine(SpawnAsteroids(currentWave));
 
-            // Wait before starting the next wave
-            yield return new WaitForSeconds(timeBetweenWaves);
-        }
-        
+                // Wait before starting the next wave
+                yield return new WaitForSeconds(timeBetweenWaves);
+            }
+        } while (isWavesLooping);
     }
 
     private IEnumerator SpawnAsteroids(WaveConfigSO wave)
