@@ -6,16 +6,21 @@ public class HealthPoint : MonoBehaviour
     private static readonly int asteroidExplosion = Animator.StringToHash("AsteroidExplosion");
     
     [SerializeField] int health = 50;
+    [SerializeField] int score = 50;
     [SerializeField] ParticleSystem hitEffect;
     [SerializeField] bool useCameraShake;
     [SerializeField] bool isPlayer;
     
     Animator animator;
     CameraShake cameraShake;
+    AudioPlayer audioPlayer;
+    ScoreManager scoreManager;
 
     void Awake()
     {
         cameraShake = Camera.main.GetComponent<CameraShake>();
+        audioPlayer = FindFirstObjectByType<AudioPlayer>();
+        scoreManager = FindFirstObjectByType<ScoreManager>();
     }
     
     void Start()
@@ -27,7 +32,7 @@ public class HealthPoint : MonoBehaviour
     {
         Damage damage = other.gameObject.GetComponent<Damage>();
 
-        if (damage != null)
+        if (damage)
         {
             TakeDamage(damage.GetDamage());
             
@@ -36,6 +41,9 @@ public class HealthPoint : MonoBehaviour
             
             // Shake Camera
             ShakeCamera();
+            
+            // Play damage audio
+            audioPlayer.PlayDamageClip();
             
             // Destroy the asteroid that collides with the player
             damage.Hit();
@@ -50,18 +58,37 @@ public class HealthPoint : MonoBehaviour
         }
     }
 
+    public int GetHealth()
+    {
+        return health;
+    }
+    
     void TakeDamage(int amount)
     {
         // Take an amount of damage specified in the damage class
         health -= amount;
         if (health <= 0)
         {
-            // Play explosion animation
-            animator.SetTrigger(isPlayer ? shipExplosion : asteroidExplosion);
-
-            // Destroy game object
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    void Die()
+    {
+        // Play explosion animation or add score whether is object is player or not
+        if (!isPlayer)
+        {
+            scoreManager.AddScore(score);
+            animator.SetTrigger(asteroidExplosion);
+        }
+        else
+        {
+            animator.SetTrigger(shipExplosion);
+        }
+        
+
+        // Destroy game object
+        Destroy(gameObject);
     }
 
     void PlayHitEffect()

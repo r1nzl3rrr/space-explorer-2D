@@ -11,7 +11,13 @@ public class Shooter : MonoBehaviour
     [HideInInspector] public bool isFiring;
     
     Coroutine firingCoroutine;
+    AudioPlayer audioPlayer;
 
+    void Awake()
+    {
+        audioPlayer = FindFirstObjectByType<AudioPlayer>();
+    }
+    
     void Update()
     {
         Fire();
@@ -47,6 +53,9 @@ public class Shooter : MonoBehaviour
             
             // Destroy the projectile after its lifetime
             Destroy(projectileToSpawn, projectileLifeTime);
+            
+            // Play shooting audio
+            audioPlayer.PlayShootingClip();
             
             // Wait before firing the next projectile
             yield return new WaitForSeconds(firingRate);
