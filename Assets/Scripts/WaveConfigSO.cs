@@ -7,8 +7,11 @@ public class WaveConfigSO : ScriptableObject
     [SerializeField] List<GameObject> asteroids;
     [SerializeField] Transform path;
     [SerializeField] float moveSpeed = 5f;
-
-    public int GetEnemyCount()
+    [SerializeField] float timeBetweenAsteroidSpawns = 1f;
+    [SerializeField] float spawnTimeVariance = 0f;
+    [SerializeField] float minimumSpawnTime = 0.2f;
+    
+    public int GetAsteroidCount()
     {
         return asteroids.Count;
     }
@@ -41,5 +44,15 @@ public class WaveConfigSO : ScriptableObject
     public float GetMoveSpeed()
     {
         return moveSpeed;
+    }
+
+    public float GetRandomSpawnTime()
+    {
+        // Randomize the spawn time with spawn time variance
+        float spawnTime = Random.Range(timeBetweenAsteroidSpawns - spawnTimeVariance, 
+                                       timeBetweenAsteroidSpawns + spawnTimeVariance);
+        
+        // Making sure spawntime does not get below the minimum threshold
+        return Mathf.Clamp(spawnTime, minimumSpawnTime, float.MaxValue);
     }
 }

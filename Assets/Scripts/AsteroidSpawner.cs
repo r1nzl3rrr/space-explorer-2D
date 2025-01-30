@@ -1,12 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AsteroidSpawner : MonoBehaviour
 {
-    [SerializeField] WaveConfigSO currentWave;
+    [SerializeField] List<WaveConfigSO> waves;
+    [SerializeField] float timeBetweenWaves = 5f;
+    
+    WaveConfigSO currentWave;
     
     void Start()
     {
-        SpawnAsteroids();
+        StartCoroutine(SpawnWaves());
     }
 
     public WaveConfigSO GetCurrentWave()
@@ -14,11 +19,35 @@ public class AsteroidSpawner : MonoBehaviour
         return currentWave;
     }
     
-    void SpawnAsteroids()
+    IEnumerator SpawnWaves()
     {
-        Instantiate(currentWave.GetAsteroid(0), 
-                    currentWave.GetStartingPoint().position, 
-                    Quaternion.identity,
-                    transform);
+        foreach (WaveConfigSO wave in waves)
+        {
+            currentWave = wave;
+            
+            // Start spawning asteroids for the current wave
+            yield return StartCoroutine(SpawnAsteroids(currentWave));
+
+            // Wait before starting the next wave
+            yield return new WaitForSeconds(timeBetweenWaves);
+        }
+        
+    }
+
+    private IEnumerator SpawnAsteroids(WaveConfigSO wave)
+    {
+        // Loops through a list of asteroids in that wave
+        for (int i = 0; i < wave.GetAsteroidCount(); i++)
+        {
+            // Spawn an asteroid in the list and child it at the first waypoint
+            // And add it to the Asteroid Spawner game object
+            Instantiate(wave.GetAsteroid(i), 
+                wave.GetStartingPoint().position, 
+                Quaternion.identity,
+                transform);
+                
+            // Wait before spawning the next asteroid
+            yield return new WaitForSeconds(wave.GetRandomSpawnTime());
+        }
     }
 }
