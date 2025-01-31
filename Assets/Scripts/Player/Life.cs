@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class Life : MonoBehaviour
 {
-    private static readonly int AsteroidExplosion = Animator.StringToHash("AsteroidExplosion");
-    private static readonly int ShipExplosion = Animator.StringToHash("ShipExplosion");
+    static readonly int AsteroidExplosion = Animator.StringToHash("AsteroidExplosion");
+    static readonly int ShipExplosion = Animator.StringToHash("ShipExplosion");
+    const string AsteroidTag = "Asteroid";
     
     [SerializeField] int health = 50;
     [SerializeField] int score = 50;
@@ -24,10 +25,14 @@ public class Life : MonoBehaviour
         _audioPlayer = FindFirstObjectByType<AudioPlayer>();
         _scoreManager = FindFirstObjectByType<ScoreManager>();
         _gameLevelManager = FindFirstObjectByType<GameLevelManager>();
-        
     }
     
     void OnTriggerEnter2D(Collider2D other)
+    {
+        Damaged(other);
+    }
+
+    void Damaged(Collider2D other)
     {
         Damage damage = other.gameObject.GetComponent<Damage>();
 
@@ -44,6 +49,13 @@ public class Life : MonoBehaviour
             
             // Play damage audio
             _audioPlayer.PlayDamageClip();
+            
+            // If the asteroid collides with the player then deducts points equals to the damage
+            if (other.gameObject.CompareTag(AsteroidTag))
+            {
+                Debug.Log(damage.GetDamage());
+                _scoreManager.AddScore(-damage.GetDamage());
+            }
             
             // Destroy the asteroid that collides with the player
             damage.Hit();
@@ -72,7 +84,6 @@ public class Life : MonoBehaviour
             Die();
         }
     }
-    
     
     void Die()
     {

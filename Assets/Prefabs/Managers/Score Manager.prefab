@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8f4b5653668e24c9c39bd6b5847b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLevelScoreThreshold: 1000
+  scoreThresholdIncreaseAmount: 2000

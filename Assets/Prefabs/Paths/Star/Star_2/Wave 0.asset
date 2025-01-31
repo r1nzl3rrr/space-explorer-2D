@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wave 0
   m_EditorClassIdentifier: 
   gameObjects:
-  - {fileID: 6845487550261223493, guid: 935d503dce5199a4191abcce6d15133c, type: 3}
+  - {fileID: 6845487550261223493, guid: 3a04abff7d14dd84eade09072b76e692, type: 3}
   path: {fileID: 5917237259595716155, guid: 54b2fff2f485ddc4a92f34f2412ff214, type: 3}
   moveSpeed: 2
   timeBetweenObjectSpawns: 1

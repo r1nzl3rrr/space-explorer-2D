@@ -1300,20 +1300,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3506955172746486055, guid: e3ba4acec93874c4b9f9b8c0c740304e, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 2259327a197563544a503a7248f8fc59, type: 2}
-    - target: {fileID: 6418908983269189169, guid: e3ba4acec93874c4b9f9b8c0c740304e, type: 3}
-      propertyPath: score
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6418908983269189169, guid: e3ba4acec93874c4b9f9b8c0c740304e, type: 3}
-      propertyPath: explosionAnim
-      value: 
-      objectReference: {fileID: 1986093242357226621, guid: 6f5b5fb05cfee644bb575b8903099cc5, type: 3}
-    m_RemovedComponents:
-    - {fileID: 3506955172746486055, guid: e3ba4acec93874c4b9f9b8c0c740304e, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

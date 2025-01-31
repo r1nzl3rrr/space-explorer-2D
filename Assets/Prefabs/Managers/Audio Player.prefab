@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6718989190797738093}
   - component: {fileID: 4556964043818934630}
-  - component: {fileID: 4217691626971814820}
+  - component: {fileID: 4443255520861225055}
   m_Layer: 0
   m_Name: Audio Player
   m_TagString: Untagged
@@ -49,7 +49,14 @@ MonoBehaviour:
   shootingVolume: 1
   damageClip: {fileID: 8300000, guid: 56242c85d8a364e48b7f6ea0b43e49e1, type: 3}
   damageVolume: 1
---- !u!82 &4217691626971814820
+  pickupClip: {fileID: 8300000, guid: d5560f3b6ddb2ce4d9062f3c6a6a2244, type: 3}
+  pickupVolume: 1
+  songs:
+  - {fileID: 8300000, guid: d6133f3931f8f1640b91cdc680622fd5, type: 3}
+  - {fileID: 8300000, guid: d78fe6c48a5f7f64b8b383f0a3730379, type: 3}
+  - {fileID: 8300000, guid: fb1b52815374ad54f8c59d9431a1a2ef, type: 3}
+  songVolume: 1
+--- !u!82 &4443255520861225055
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,8 +66,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d6133f3931f8f1640b91cdc680622fd5, type: 3}
-  m_Resource: {fileID: 8300000, guid: d6133f3931f8f1640b91cdc680622fd5, type: 3}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

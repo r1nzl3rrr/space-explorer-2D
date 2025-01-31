@@ -6,7 +6,6 @@ public class FlashTransition : MonoBehaviour
 {
     [SerializeField] Image flashImage;
     [SerializeField] float flashDuration = 0.2f;
-    [SerializeField] float fadeSpeed = 2f;
 
     private void Start()
     {
