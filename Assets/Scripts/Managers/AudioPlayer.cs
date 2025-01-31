@@ -17,6 +17,11 @@ public class AudioPlayer : MonoBehaviour
         ManageSingleton();
     }
 
+    public static AudioPlayer GetInstance()
+    {
+        return _instance;
+    }
+    
     // Applying singleton pattern
     void ManageSingleton()
     {

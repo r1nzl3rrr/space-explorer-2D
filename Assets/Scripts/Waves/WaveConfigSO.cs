@@ -8,7 +8,7 @@ public class WaveConfigSO : ScriptableObject
     [SerializeField] List<GameObject> gameObjects;
     [SerializeField] Transform path;
     [SerializeField] float moveSpeed = 5f;
-    [SerializeField] float timeBetweenAsteroidSpawns = 1f;
+    [SerializeField] float timeBetweenObjectSpawns = 1f;
     [SerializeField] float spawnTimeVariance = 0f;
     [SerializeField] float minimumSpawnTime = 0.2f;
     
@@ -50,8 +50,8 @@ public class WaveConfigSO : ScriptableObject
     public float GetRandomSpawnTime()
     {
         // Randomize the spawn time with spawn time variance
-        float spawnTime = Random.Range(timeBetweenAsteroidSpawns - spawnTimeVariance, 
-                                       timeBetweenAsteroidSpawns + spawnTimeVariance);
+        float spawnTime = Random.Range(timeBetweenObjectSpawns - spawnTimeVariance, 
+                                       timeBetweenObjectSpawns + spawnTimeVariance);
         
         // Making sure spawntime does not get below the minimum threshold
         return Mathf.Clamp(spawnTime, minimumSpawnTime, float.MaxValue);

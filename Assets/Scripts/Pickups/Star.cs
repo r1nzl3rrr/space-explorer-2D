@@ -13,6 +13,8 @@ public class Star : Pickup
 
     protected override void OnPickup()
     {
+        Debug.Log(scoreAmount);
+        // Increase score if star is picked up by the player
         _scoreManager.AddScore(scoreAmount);
     }
 }

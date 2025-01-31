@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5ce1fbe386ac54ca568e5bc2810acb, type: 3}
+  m_Name: Wave 2
+  m_EditorClassIdentifier: 
+  gameObjects:
+  - {fileID: 1175736463543094989, guid: 98e4db0aabf674a488023057789bf6be, type: 3}
+  - {fileID: 1175736463543094989, guid: 98e4db0aabf674a488023057789bf6be, type: 3}
+  - {fileID: 1175736463543094989, guid: 98e4db0aabf674a488023057789bf6be, type: 3}
+  - {fileID: 1175736463543094989, guid: 193b6dba19b5a9143aae865494db2cf8, type: 3}
+  - {fileID: 1175736463543094989, guid: 98e4db0aabf674a488023057789bf6be, type: 3}
+  - {fileID: 1175736463543094989, guid: 193b6dba19b5a9143aae865494db2cf8, type: 3}
+  - {fileID: 1175736463543094989, guid: 98e4db0aabf674a488023057789bf6be, type: 3}
+  path: {fileID: 5917237259595716155, guid: 66fda2b1c8f30ab4e8e734943769c1e4, type: 3}
+  moveSpeed: 3
+  timeBetweenObjectSpawns: 1
+  spawnTimeVariance: 0.5
+  minimumSpawnTime: 0.2

@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5ce1fbe386ac54ca568e5bc2810acb, type: 3}
   m_Name: Wave 0
   m_EditorClassIdentifier: 
-  asteroids:
+  gameObjects:
+  - {fileID: 1175736463543094989, guid: c915f2ee7cb383d409c8fd6787515eab, type: 3}
+  - {fileID: 1175736463543094989, guid: c915f2ee7cb383d409c8fd6787515eab, type: 3}
   - {fileID: 1175736463543094989, guid: c915f2ee7cb383d409c8fd6787515eab, type: 3}
   - {fileID: 1175736463543094989, guid: c915f2ee7cb383d409c8fd6787515eab, type: 3}
   - {fileID: 1175736463543094989, guid: c915f2ee7cb383d409c8fd6787515eab, type: 3}

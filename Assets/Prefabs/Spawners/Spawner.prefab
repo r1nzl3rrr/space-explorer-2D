@@ -47,5 +47,7 @@ MonoBehaviour:
   waves:
   - {fileID: 11400000, guid: afcc1606babc76549a63c5b3f8e61c51, type: 2}
   - {fileID: 11400000, guid: fc33c7b46829ce24592e633074e747c6, type: 2}
+  - {fileID: 11400000, guid: 6c3778b681cf55b4599387a0e2f699d9, type: 2}
+  - {fileID: 11400000, guid: 101c91466a6c7e14fb075e433c47b30a, type: 2}
   timeBetweenWaves: 1
   isWavesLooping: 1

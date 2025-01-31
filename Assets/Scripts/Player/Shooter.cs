@@ -15,7 +15,7 @@ public class Shooter : MonoBehaviour
 
     void Awake()
     {
-        _audioPlayer = FindFirstObjectByType<AudioPlayer>();
+        _audioPlayer = AudioPlayer.FindFirstObjectByType<AudioPlayer>();
     }
     
     void Update()

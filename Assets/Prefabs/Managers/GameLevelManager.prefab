@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3563879745200385356}
-  - component: {fileID: 4264673256176235927}
+  - component: {fileID: -5223105168679912880}
   m_Layer: 0
-  m_Name: LevelManager
+  m_Name: GameLevelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4264673256176235927
+--- !u!114 &-5223105168679912880
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,3 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4d134f5813649c49bf8d114c17d80a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneLoadDelay: 1
+  levels:
+  - Level1
+  - Level2
+  - Level3

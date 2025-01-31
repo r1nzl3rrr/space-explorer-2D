@@ -2,11 +2,10 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour
+public class MenuLevelManager : MonoBehaviour
 {
-    [SerializeField] float sceneLoadDelay = 2f;
     ScoreManager _scoreManager;
-
+    
     void Awake()
     {
         _scoreManager = FindFirstObjectByType<ScoreManager>();
@@ -16,7 +15,7 @@ public class LevelManager : MonoBehaviour
     {
         // Reset score when start new game or restart game
         _scoreManager.ResetScore();
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("Level1");
     }
 
     public void LoadMainMenu()
@@ -29,20 +28,8 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("Instructions");
     }
     
-    public void LoadGameOver()
-    {
-        StartCoroutine(WaitForSceneLoad("GameOver", sceneLoadDelay));
-    }
-
     public void QuitGame()
     {
         Application.Quit();
-    }
-
-    IEnumerator WaitForSceneLoad(string sceneName, float delay)
-    {
-        // Wait before loading the scene
-        yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene(sceneName);
     }
 }

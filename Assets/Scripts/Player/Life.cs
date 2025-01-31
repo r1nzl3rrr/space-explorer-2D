@@ -16,14 +16,14 @@ public class Life : MonoBehaviour
     CameraShake _cameraShake;
     AudioPlayer _audioPlayer;
     ScoreManager _scoreManager;
-    LevelManager _levelManager;
+    GameLevelManager _gameLevelManager;
     
     void Awake()
     {
         _cameraShake = Camera.main.GetComponent<CameraShake>();
         _audioPlayer = FindFirstObjectByType<AudioPlayer>();
         _scoreManager = FindFirstObjectByType<ScoreManager>();
-        _levelManager = FindFirstObjectByType<LevelManager>();
+        _gameLevelManager = FindFirstObjectByType<GameLevelManager>();
         
     }
     
@@ -33,6 +33,7 @@ public class Life : MonoBehaviour
 
         if (damage)
         {
+            // Take hit damage
             TakeDamage(damage.GetDamage());
             
             // Show hit particle
@@ -89,7 +90,7 @@ public class Life : MonoBehaviour
         {
             explosionInstance.SetTrigger(ShipExplosion);
             // Load game over menu
-            _levelManager.LoadGameOver();
+            _gameLevelManager.LoadGameOver();
         }
         
         // Destroy game object

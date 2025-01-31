@@ -4,12 +4,18 @@ public class ScoreManager : MonoBehaviour
 {
     int score;
     static ScoreManager _instance;
+
+    [SerializeField] int currentLevelScoreThreshold = 1000;
+    [SerializeField] int scoreThresholdIncreaseAmount = 1000;
+    
+    GameLevelManager _gameLevelManager;
     
     void Awake()
     {
         ManageSingleton();
+        _gameLevelManager = FindFirstObjectByType<GameLevelManager>();
     }
-
+    
     // Applying singleton pattern
     void ManageSingleton()
     {
@@ -36,6 +42,15 @@ public class ScoreManager : MonoBehaviour
         
         // Clamp the score to not be less than 0
         Mathf.Clamp(score, 0, int.MaxValue);
+        
+        if (score >= currentLevelScoreThreshold)
+        {
+            FlashTransition flashTransition = FindFirstObjectByType<FlashTransition>();
+            
+            flashTransition.TriggerFlash();
+            _gameLevelManager.LoadNextLevel();
+            currentLevelScoreThreshold += scoreThresholdIncreaseAmount;
+        }
     }
 
     public void ResetScore()
