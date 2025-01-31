@@ -1,32 +1,33 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UIDisplay : MonoBehaviour
 {
     [Header("Health")]
     [SerializeField] Slider healthSlider;
-    [SerializeField] HealthPoint playerHealth;
+    [FormerlySerializedAs("playerHealth")] [SerializeField] Life playerLife;
     
     [Header("Score")]
     [SerializeField] TextMeshProUGUI scoreText;
-    ScoreManager scoreManager;
+    ScoreManager _scoreManager;
 
     void Awake()
     {
-        scoreManager = FindFirstObjectByType<ScoreManager>();
+        _scoreManager = FindFirstObjectByType<ScoreManager>();
     }
     
     void Start()
     {
         // Link the maximum value of the health bar to the player health
-        healthSlider.maxValue = playerHealth.GetHealth();
+        healthSlider.maxValue = playerLife.GetHealth();
     }
 
     void Update()
     {
         // Update health bar and score text on the UI
-        healthSlider.value = playerHealth.GetHealth();
-        scoreText.text = scoreManager.GetScore().ToString("00000000000");
+        healthSlider.value = playerLife.GetHealth();
+        scoreText.text = _scoreManager.GetScore().ToString("00000000000");
     }
 }

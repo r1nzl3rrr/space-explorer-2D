@@ -5,21 +5,21 @@ public class PathFinder : MonoBehaviour
 {
     [SerializeField] float moveThreshold = 0.1f;
     
-    AsteroidSpawner asteroidSpawner;
-    WaveConfigSO waveConfigSO;
-    List<Transform> waypoints;
-    int waypointIndex = 0;
+    Spawner _spawner;
+    WaveConfigSO _waveConfigSo;
+    List<Transform> _waypoints;
+    int _waypointIndex = 0;
 
     void Awake()
     {
-        asteroidSpawner = FindFirstObjectByType<AsteroidSpawner>();
+        _spawner = FindFirstObjectByType<Spawner>();
     }
     
     void Start()
     {
-        waveConfigSO = asteroidSpawner.GetCurrentWave();
-        waypoints = waveConfigSO.GetWaypoints();
-        transform.position = waypoints[waypointIndex].position;
+        _waveConfigSo = _spawner.GetCurrentWave();
+        _waypoints = _waveConfigSo.GetWaypoints();
+        transform.position = _waypoints[_waypointIndex].position;
     }
 
     void Update()
@@ -30,21 +30,21 @@ public class PathFinder : MonoBehaviour
     void FindPath()
     {
         // If destination is reached then destroy game object
-        if (waypointIndex >= waypoints.Count)
+        if (_waypointIndex >= _waypoints.Count)
         {
             Destroy(gameObject);
             return;
         }
         
         // Keep finding the next waypoint and move toward it
-        Vector3 targetPos = waypoints[waypointIndex].position;
-        float movement = waveConfigSO.GetMoveSpeed() * Time.deltaTime;
+        Vector3 targetPos = _waypoints[_waypointIndex].position;
+        float movement = _waveConfigSo.GetMoveSpeed() * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, targetPos, movement);
         
         // Check if the object is close enough to the target waypoint
         if (Vector2.Distance(transform.position, targetPos) < moveThreshold)
         {
-            waypointIndex++;
+            _waypointIndex++;
         }
     }
 }

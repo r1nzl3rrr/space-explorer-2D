@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HealthPoint : MonoBehaviour
+public class Life : MonoBehaviour
 {
     private static readonly int AsteroidExplosion = Animator.StringToHash("AsteroidExplosion");
     private static readonly int ShipExplosion = Animator.StringToHash("ShipExplosion");
@@ -13,17 +13,17 @@ public class HealthPoint : MonoBehaviour
     [SerializeField] Animator explosionAnim;
     [SerializeField] float explosionDuration = 0.5f;
 
-    CameraShake cameraShake;
-    AudioPlayer audioPlayer;
-    ScoreManager scoreManager;
-    LevelManager levelManager;
+    CameraShake _cameraShake;
+    AudioPlayer _audioPlayer;
+    ScoreManager _scoreManager;
+    LevelManager _levelManager;
     
     void Awake()
     {
-        cameraShake = Camera.main.GetComponent<CameraShake>();
-        audioPlayer = FindFirstObjectByType<AudioPlayer>();
-        scoreManager = FindFirstObjectByType<ScoreManager>();
-        levelManager = FindFirstObjectByType<LevelManager>();
+        _cameraShake = Camera.main.GetComponent<CameraShake>();
+        _audioPlayer = FindFirstObjectByType<AudioPlayer>();
+        _scoreManager = FindFirstObjectByType<ScoreManager>();
+        _levelManager = FindFirstObjectByType<LevelManager>();
         
     }
     
@@ -42,7 +42,7 @@ public class HealthPoint : MonoBehaviour
             ShakeCamera();
             
             // Play damage audio
-            audioPlayer.PlayDamageClip();
+            _audioPlayer.PlayDamageClip();
             
             // Destroy the asteroid that collides with the player
             damage.Hit();
@@ -51,9 +51,9 @@ public class HealthPoint : MonoBehaviour
 
     void ShakeCamera()
     {
-        if (cameraShake && useCameraShake)
+        if (_cameraShake && useCameraShake)
         {
-            cameraShake.Play();
+            _cameraShake.Play();
         }
     }
 
@@ -83,13 +83,13 @@ public class HealthPoint : MonoBehaviour
         if (!isPlayer)
         {
             explosionInstance.SetTrigger(AsteroidExplosion);
-            scoreManager.AddScore(score);
+            _scoreManager.AddScore(score);
         }
         else
         {
             explosionInstance.SetTrigger(ShipExplosion);
             // Load game over menu
-            levelManager.LoadGameOver();
+            _levelManager.LoadGameOver();
         }
         
         // Destroy game object

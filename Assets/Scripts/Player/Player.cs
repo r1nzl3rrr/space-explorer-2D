@@ -9,15 +9,15 @@ public class Player : MonoBehaviour
     [SerializeField] float paddingTop = 5f;
     [SerializeField] float paddingBottom = 5f;
     
-    Vector2 input;
-    Vector2 minBounds;
-    Vector2 maxBounds;
+    Vector2 _input;
+    Vector2 _minBounds;
+    Vector2 _maxBounds;
 
-    Shooter shooter;
+    Shooter _shooter;
 
     void Awake()
     {
-        shooter = GetComponent<Shooter>();
+        _shooter = GetComponent<Shooter>();
     }
     
     void Start()
@@ -35,30 +35,30 @@ public class Player : MonoBehaviour
     void InitBounds()
     {
         Camera mainCamera = Camera.main;
-        minBounds = mainCamera.ViewportToWorldPoint(new Vector2(0, 0));
-        maxBounds = mainCamera.ViewportToWorldPoint(new Vector2(1, 1));
+        _minBounds = mainCamera.ViewportToWorldPoint(new Vector2(0, 0));
+        _maxBounds = mainCamera.ViewportToWorldPoint(new Vector2(1, 1));
     }
     
     // Translate the player ship with input received 
     void Move()
     {
         // Delta time will make movement frame independence
-        Vector2 movement = input * moveSpeed * Time.deltaTime;
+        Vector2 movement = _input * moveSpeed * Time.deltaTime;
         Vector2 newPos = new Vector2();
         
         // Clamp the movement to the defined bounds
-        newPos.x = Mathf.Clamp(transform.position.x + movement.x, minBounds.x + paddingLeft, maxBounds.x - paddingRight);
-        newPos.y = Mathf.Clamp(transform.position.y + movement.y, minBounds.y + paddingBottom, maxBounds.y - paddingTop);
+        newPos.x = Mathf.Clamp(transform.position.x + movement.x, _minBounds.x + paddingLeft, _maxBounds.x - paddingRight);
+        newPos.y = Mathf.Clamp(transform.position.y + movement.y, _minBounds.y + paddingBottom, _maxBounds.y - paddingTop);
         transform.position = newPos;
     }
 
     void OnMove(InputValue value)
     {
-        input = value.Get<Vector2>();
+        _input = value.Get<Vector2>();
     }
 
     void OnFire(InputValue value)
     {
-        if (shooter != null) shooter.isFiring = value.isPressed;
+        if (_shooter != null) _shooter.isFiring = value.isPressed;
     }
 }

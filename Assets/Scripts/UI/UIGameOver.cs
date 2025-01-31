@@ -5,15 +5,15 @@ public class UIGameOver : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreText;
     
-    ScoreManager scoreManager;
+    ScoreManager _scoreManager;
 
     void Awake()
     {
-        scoreManager = FindFirstObjectByType<ScoreManager>();
+        _scoreManager = FindFirstObjectByType<ScoreManager>();
     }
     
     void Start()
     {
-        scoreText.text = scoreManager.GetScore().ToString("000000000");
+        scoreText.text = _scoreManager.GetScore().ToString("000000000");
     }
 }

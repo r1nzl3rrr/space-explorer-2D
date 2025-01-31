@@ -1,24 +1,25 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(menuName = "Wave Config", fileName = "New Wave Config")]
 public class WaveConfigSO : ScriptableObject
 {
-    [SerializeField] List<GameObject> asteroids;
+    [SerializeField] List<GameObject> gameObjects;
     [SerializeField] Transform path;
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float timeBetweenAsteroidSpawns = 1f;
     [SerializeField] float spawnTimeVariance = 0f;
     [SerializeField] float minimumSpawnTime = 0.2f;
     
-    public int GetAsteroidCount()
+    public int GetObjectCount()
     {
-        return asteroids.Count;
+        return gameObjects.Count;
     }
 
-    public GameObject GetAsteroid(int index)
+    public GameObject GetObject(int index)
     {
-        return asteroids[index];
+        return gameObjects[index];
     }
 
     public Transform GetStartingPoint()

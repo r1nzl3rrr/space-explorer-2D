@@ -10,7 +10,7 @@ public class AudioPlayer : MonoBehaviour
     [SerializeField] AudioClip damageClip;
     [SerializeField] [Range(0f, 1f)] float damageVolume = 1f;
 
-    static AudioPlayer instance;
+    static AudioPlayer _instance;
     
     void Awake()
     {
@@ -20,14 +20,14 @@ public class AudioPlayer : MonoBehaviour
     // Applying singleton pattern
     void ManageSingleton()
     {
-        if (instance)
+        if (_instance)
         {
             gameObject.SetActive(false);
             Destroy(gameObject);
         }
         else
         {
-            instance = this;
+            _instance = this;
             DontDestroyOnLoad(gameObject);
         }
     }

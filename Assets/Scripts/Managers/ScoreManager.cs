@@ -3,7 +3,7 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     int score;
-    static ScoreManager instance;
+    static ScoreManager _instance;
     
     void Awake()
     {
@@ -13,14 +13,14 @@ public class ScoreManager : MonoBehaviour
     // Applying singleton pattern
     void ManageSingleton()
     {
-        if (instance)
+        if (_instance)
         {
             gameObject.SetActive(false);
             Destroy(gameObject);
         }
         else
         {
-            instance = this;
+            _instance = this;
             DontDestroyOnLoad(gameObject);
         }
     }

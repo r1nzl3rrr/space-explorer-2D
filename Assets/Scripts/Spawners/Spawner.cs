@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AsteroidSpawner : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     [SerializeField] List<WaveConfigSO> waves;
     [SerializeField] float timeBetweenWaves = 5f;
     [SerializeField] bool isWavesLooping;
 
-    WaveConfigSO currentWave;
+    WaveConfigSO _currentWave;
     
     void Start()
     {
@@ -17,7 +17,7 @@ public class AsteroidSpawner : MonoBehaviour
 
     public WaveConfigSO GetCurrentWave()
     {
-        return currentWave;
+        return _currentWave;
     }
     
     IEnumerator SpawnWaves()
@@ -26,10 +26,10 @@ public class AsteroidSpawner : MonoBehaviour
         {
             foreach (WaveConfigSO wave in waves)
             {
-                currentWave = wave;
+                _currentWave = wave;
             
-                // Start spawning asteroids for the current wave
-                yield return StartCoroutine(SpawnAsteroids(currentWave));
+                // Start spawning asteroids and stars for the current wave
+                yield return StartCoroutine(SpawnObjects(_currentWave));
 
                 // Wait before starting the next wave
                 yield return new WaitForSeconds(timeBetweenWaves);
@@ -37,19 +37,19 @@ public class AsteroidSpawner : MonoBehaviour
         } while (isWavesLooping);
     }
 
-    private IEnumerator SpawnAsteroids(WaveConfigSO wave)
+    private IEnumerator SpawnObjects(WaveConfigSO wave)
     {
-        // Loops through a list of asteroids in that wave
-        for (int i = 0; i < wave.GetAsteroidCount(); i++)
+        // Loops through a list of asteroids and stars in that wave
+        for (int i = 0; i < wave.GetObjectCount(); i++)
         {
-            // Spawn an asteroid in the list and child it at the first waypoint
+            // Spawn an asteroid or star in the list and child it at the first waypoint
             // And add it to the Asteroid Spawner game object
-            Instantiate(wave.GetAsteroid(i), 
+            Instantiate(wave.GetObject(i), 
                 wave.GetStartingPoint().position, 
                 Quaternion.identity,
                 transform);
                 
-            // Wait before spawning the next asteroid
+            // Wait before spawning the next asteroid or star
             yield return new WaitForSeconds(wave.GetRandomSpawnTime());
         }
     }

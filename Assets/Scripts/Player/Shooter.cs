@@ -10,12 +10,12 @@ public class Shooter : MonoBehaviour
     
     [HideInInspector] public bool isFiring;
     
-    Coroutine firingCoroutine;
-    AudioPlayer audioPlayer;
+    Coroutine _firingCoroutine;
+    AudioPlayer _audioPlayer;
 
     void Awake()
     {
-        audioPlayer = FindFirstObjectByType<AudioPlayer>();
+        _audioPlayer = FindFirstObjectByType<AudioPlayer>();
     }
     
     void Update()
@@ -26,15 +26,15 @@ public class Shooter : MonoBehaviour
     void Fire()
     {
         // Prevent multiple coroutine from starting
-        if (isFiring && firingCoroutine == null)
+        if (isFiring && _firingCoroutine == null)
         {
-            firingCoroutine = StartCoroutine(ConstantFiring());
+            _firingCoroutine = StartCoroutine(ConstantFiring());
         }
-        else if (!isFiring && firingCoroutine != null)
+        else if (!isFiring && _firingCoroutine != null)
         {
             // Stop firing only when release key
-            StopCoroutine(firingCoroutine);
-            firingCoroutine = null;
+            StopCoroutine(_firingCoroutine);
+            _firingCoroutine = null;
         } 
     }
 
@@ -55,7 +55,7 @@ public class Shooter : MonoBehaviour
             Destroy(projectileToSpawn, projectileLifeTime);
             
             // Play shooting audio
-            audioPlayer.PlayShootingClip();
+            _audioPlayer.PlayShootingClip();
             
             // Wait before firing the next projectile
             yield return new WaitForSeconds(firingRate);

@@ -5,17 +5,17 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] float sceneLoadDelay = 2f;
-    ScoreManager scoreManager;
+    ScoreManager _scoreManager;
 
     void Awake()
     {
-        scoreManager = FindFirstObjectByType<ScoreManager>();
+        _scoreManager = FindFirstObjectByType<ScoreManager>();
     }
     
     public void LoadGame()
     {
         // Reset score when start new game or restart game
-        scoreManager.ResetScore();
+        _scoreManager.ResetScore();
         SceneManager.LoadScene("MainScene");
     }
 
@@ -24,6 +24,11 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    public void LoadInstructions()
+    {
+        SceneManager.LoadScene("Instructions");
+    }
+    
     public void LoadGameOver()
     {
         StartCoroutine(WaitForSceneLoad("GameOver", sceneLoadDelay));

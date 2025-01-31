@@ -103,6 +103,18 @@ PrefabInstance:
       propertyPath: hitEffect
       value: 
       objectReference: {fileID: 1811021602542172758, guid: 7e1c014c451d1c5438a5905be2641dcd, type: 3}
+    - target: {fileID: -1763938960757907837, guid: 4f5a2215308d82c4aa5250c46787bc32, type: 3}
+      propertyPath: m_Radius
+      value: 0.7445288
+      objectReference: {fileID: 0}
+    - target: {fileID: -1763938960757907837, guid: 4f5a2215308d82c4aa5250c46787bc32, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1520609551610773181, guid: 4f5a2215308d82c4aa5250c46787bc32, type: 3}
+      propertyPath: rotationSpeed
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 98993276174919471, guid: 4f5a2215308d82c4aa5250c46787bc32, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -162,9 +174,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2756237492165623357, guid: 4f5a2215308d82c4aa5250c46787bc32, type: 3}
       insertIndex: -1
       addedObject: {fileID: -1298577424501368215}
-    - targetCorrespondingSourceObject: {fileID: 2756237492165623357, guid: 4f5a2215308d82c4aa5250c46787bc32, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3811626296047308203}
   m_SourcePrefab: {fileID: 100100000, guid: 4f5a2215308d82c4aa5250c46787bc32, type: 3}
 --- !u!1 &1175736463543094989 stripped
 GameObject:
@@ -211,42 +220,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &3811626296047308203
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1175736463543094989}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: -0.0042403936, y: 0.010601044}
-  m_Radius: 0.7523055
 --- !u!4 &3985299385064757215 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 98993276174919471, guid: 4f5a2215308d82c4aa5250c46787bc32, type: 3}
