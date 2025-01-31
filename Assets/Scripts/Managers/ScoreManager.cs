@@ -41,7 +41,7 @@ public class ScoreManager : MonoBehaviour
         score += amount;
         
         // Clamp the score to not be less than 0
-        Mathf.Clamp(score, 0, int.MaxValue);
+        score = Mathf.Clamp(score, 0, int.MaxValue);
         
         if (score >= currentLevelScoreThreshold)
         {
