@@ -53,7 +53,6 @@ public class Life : MonoBehaviour
             // If the asteroid collides with the player then deducts points equals to the damage
             if (other.gameObject.CompareTag(AsteroidTag))
             {
-                Debug.Log(damage.GetDamage());
                 _scoreManager.AddScore(-damage.GetDamage());
             }
             
