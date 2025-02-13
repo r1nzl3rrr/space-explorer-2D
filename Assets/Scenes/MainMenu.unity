@@ -1091,13 +1091,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1644748731017753652, guid: 58677a71398a0884ba991c9a903441eb, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 3430690443665805305, guid: 58677a71398a0884ba991c9a903441eb, type: 3}
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 4823166293932789510, guid: 58677a71398a0884ba991c9a903441eb, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 8834373173424620778, guid: 58677a71398a0884ba991c9a903441eb, type: 3}
       propertyPath: moveSpeed.y
-      value: 0.05
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
