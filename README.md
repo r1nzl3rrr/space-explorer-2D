@@ -10,7 +10,7 @@
 - **Player Ship:**
   - Health: 100
   - Projectile Damage: 10
-  - Health decreases on collision with asteroids.
+  - Health decreases on collision with asteroids and score deducted equals to the damage that the asteroid deals.
 
 ![SpaceShip](Assets/3rd%20Party%20Assets/SpaceAssets/Ships/Spaceship.png)
 
