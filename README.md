@@ -12,6 +12,8 @@
   - Projectile Damage: 10
   - Health decreases on collision with asteroids.
 
+![SpaceShip](Assets/3rd%20Party%20Assets/SpaceAssets/Ships/Spaceship.png)
+
 - **Asteroids:**
   - **Asteroid 1:**
     - Damage: 10
@@ -34,8 +36,10 @@
     
 - **Stars:**
   - **Yellow Star:** Collecting gives 150 points.
+    
     ![Star 1](Assets/3rd%20Party%20Assets/SpaceAssets/Stars/Star_1.png)
   - **Red Star:** Collecting gives 300 points.
+    
     ![Star 2](Assets/3rd%20Party%20Assets/SpaceAssets/Stars/Star_2.png)
 
 - **Progression:**
