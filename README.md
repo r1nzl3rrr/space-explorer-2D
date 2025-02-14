@@ -34,7 +34,9 @@
     
 - **Stars:**
   - **Yellow Star:** Collecting gives 150 points.
+    ![Star 1](Assets/3rd%20Party%20Assets/SpaceAssets/Stars/Star_1.png)
   - **Red Star:** Collecting gives 300 points.
+    ![Star 2](Assets/3rd%20Party%20Assets/SpaceAssets/Stars/Star_2.png)
 
 - **Progression:**
   - As the player accumulates points (thresholds like 1000 or 2000), the scene will flash and transition to the next level with more challenging asteroids.
