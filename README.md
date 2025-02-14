@@ -14,7 +14,7 @@
 
 - **Asteroids:**
   - **Asteroid 1:**
-    ![Asteroid 1](https://github.com/r1nzl3rrr/space-explorer-2D/blob/main/Assets/3rd%20Party%20Assets/SpaceAssets/Asteroids/Asteroid_1.png)
+    ![Asteroid 1](Assets/3rd%20Party%20Assets/SpaceAssets/Asteroids/Asteroid_1.png)
     - Damage: 10
     - Health: 30
     - Destroying it grants 50 points.
