@@ -65,6 +65,9 @@
   - Health bar
   - Score counter
 
+## Assets
+- All game assets (sprites, textures) were generated using an AI-based pixelated workflow.
+
 ## Installation
 1. Clone the repository:  
    ```bash
