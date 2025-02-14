@@ -17,16 +17,19 @@
     - Damage: 10
     - Health: 30
     - Destroying it grants 50 points.
+      
     ![Asteroid 1](Assets/3rd%20Party%20Assets/SpaceAssets/Asteroids/Asteroid_1.png)
   - **Asteroid 2:**
     - Damage: 30
     - Health: 50
     - Destroying it grants 70 points.
+      
     ![Asteroid 2](Assets/3rd%20Party%20Assets/SpaceAssets/Asteroids/Asteroid_2.png)
   - **Asteroid 3:**
     - Damage: 50
     - Health: 70
     - Destroying it grants 100 points.
+      
     ![Asteroid 3](Assets/3rd%20Party%20Assets/SpaceAssets/Asteroids/Asteroid_3.png)
     
 - **Stars:**
