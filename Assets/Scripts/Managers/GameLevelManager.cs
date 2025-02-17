@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameLevelManager : MonoBehaviour
 {
     [SerializeField] float sceneLoadDelay = 2f;
-    [SerializeField] string[] levels = { "Level1", "Level2", "Level3" };
+    [SerializeField] string[] levels = { "Level1", "Level2", "Level3", "Level4" };
 
     static GameLevelManager _instance;
 
@@ -13,7 +13,7 @@ public class GameLevelManager : MonoBehaviour
     {
         ManageSingleton();
     }
-    
+
     // Applying singleton pattern
     void ManageSingleton()
     {
@@ -28,7 +28,7 @@ public class GameLevelManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
-    
+
     public void LoadGameOver()
     {
         LoadLevel("GameOver");
@@ -38,7 +38,7 @@ public class GameLevelManager : MonoBehaviour
     {
         StartCoroutine(WaitForSceneLoad(levelName, sceneLoadDelay));
     }
-    
+
     public void LoadNextLevel()
     {
         // Get the current level's index in the levels array
@@ -51,7 +51,7 @@ public class GameLevelManager : MonoBehaviour
         // Load the next level
         LoadLevel(levels[nextLevelIndex]);
     }
-    
+
     IEnumerator WaitForSceneLoad(string sceneName, float delay)
     {
         // Wait before loading the scene
